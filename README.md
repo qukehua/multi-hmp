@@ -43,13 +43,16 @@ Download all the data and put them in the [dataset path].
 
 [CMU mocap](http://mocap.cs.cmu.edu/) 
 
-[mupots3d](https://vcai.mpi-inf.mpg.de/projects/SingleShotMultiPerson/) 
+[MuPoTS-3D](https://vcai.mpi-inf.mpg.de/projects/SingleShotMultiPerson/) 
 
 
 
 ### Training
 ------
-
+To train our model, please try
+```
+python main.py
+```
 
 
 ## Evaluation
@@ -59,4 +62,4 @@ Add `--is_eval` after the above training commands.
 The test result will be saved in `./checkpoint/`.
 
 #### Ackowlegments
-Our code is based on [PGBIG](https://github.com/705062791/PGBIG) and [Dpnet](https://ieeexplore.ieee.org/document/10025861).
+Our code is based on [JRT](https://github.com/MediaBrain-SJTU/JRTransformer) and [MRT](https://github.com/jiashunwang/MRT).
