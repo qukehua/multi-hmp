@@ -1,5 +1,6 @@
-# KSOF
-**KSOF: Leveraging Kinematics and Spatio-temporal Optimal Fusion for Human Motion Prediction** 
+
+**Relation Learning and Aggregate-attention for
+Multi-person Motion Prediction** 
 
 ### Abstract
 ------
