@@ -4,19 +4,26 @@ Multi-person Motion Prediction**
 
 ### Abstract
 ------
-Ignoring the meaningful kinematics law, which generates improbable or impractical predictions, is one of the obstacles
-to human motion prediction. Current methods attempt to tackle this problem by taking simple kinematics information
-as auxiliary features to improve predictions. It remains challenging to utilize human prior knowledge deeply, such
-as the trajectory formed by the same joint should be smooth and continuous on this task. In this paper, we advocate
-explicitly describing kinematics information via velocity and acceleration by proposing a novel loss called joint point
-smoothness (JPS) loss, which calculates the acceleration of joints to smooth the sudden change in joint velocity. In
-addition, capturing spatio-temporal dependencies to make feature representations more informative is also one of the
-obstacles in this task. Therefore, we propose a dual-path network (KSOF) that models the temporal and spatial dependencies from kinematic temporal convolutional network (K-TCN) and spatial graph convolutional networks (S-GCN),
-respectively. Moreover, we propose a novel multi-scale fusion module named spatio-temporal optimal fusion (SOF)
-to better capture the essential correlation and important features at different scales from spatio-temporal coupling
-features. We evaluate our approach on three standard benchmark datasets, including Human3.6M, CMU-Mocap, and
-3DPW datasets. For both short-term and long-term predictions, our method achieves outstanding performance on all
-these datasets, confirming its effectiveness.
+Multi-person motion prediction is an emerging and
+intricate task with broad real-world applications. Previous methods
+achieve impressive results by modeling the spatial relations of
+all individuals’ joints and the temporal trajectory of a particular
+individual. However, they may ignore the distinction between
+the spatial relationships within a person and those between
+multiple persons, which inevitably introduces undesired dependencies.
+To address this issue, we introduce a new collaborative
+framework for multi-person motion prediction that explicitly
+models these relations: a GCN-based network for intra-relations
+(spatio-temporal relations inside a person) and a novel reasoning
+network for inter-relations (spatial relations between persons).
+Moreover, we propose a novel plug-and-play aggregation module
+called the Interaction Aggregation Module (IAM), which employs
+an aggregate-attention mechanism to seamlessly integrate these
+relations. Experiments indicate that the module can also be
+applied to other dual-path models. Extensive experiments on
+the 3DPW, 3DPW-RC, CMU-Mocap, MuPoTS-3D, as well as
+synthesized datasets Mix1 & Mix2 (9∼15 persons), demonstrate
+that our method achieves state-of-the-art performance.
 
 ### Network Architecture
 ------
