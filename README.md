@@ -40,8 +40,10 @@ that our method achieves state-of-the-art performance.
 Download all the data and put them in the [dataset path].
 
 [3DPW](https://virtualhumans.mpi-inf.mpg.de/3DPW/)
+
 [CMU mocap](http://mocap.cs.cmu.edu/) 
-[mupots3d]([http://mocap.cs.cmu.edu/](https://vcai.mpi-inf.mpg.de/projects/SingleShotMultiPerson/)) 
+
+[mupots3d](https://vcai.mpi-inf.mpg.de/projects/SingleShotMultiPerson/) 
 
 
 
