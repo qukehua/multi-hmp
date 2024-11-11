@@ -31,7 +31,7 @@ that our method achieves state-of-the-art performance.
 
 ### Visualization
 ------
-https://github.com/qukehua/multi-hmp/issues/1#issue-2648454698
+https://github.com/user-attachments/assets/a2929cae-05a1-47b9-921a-fec43712ebd1
 ### Requirements
 ------
 - PyTorch = 1.8.0
