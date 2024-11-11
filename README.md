@@ -28,6 +28,10 @@ that our method achieves state-of-the-art performance.
 ------
 ![image](images/architecture.png)
 
+
+### Visualization
+------
+https://github.com/qukehua/multi-hmp/issues/1#issue-2648454698
 ### Requirements
 ------
 - PyTorch = 1.8.0
