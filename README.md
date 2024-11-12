@@ -32,7 +32,8 @@ that our method achieves state-of-the-art performance.
 ### Visualization
 ------
 Scene1 Walking together (2 persons)
-<img src="images/scene1_input.gif" width="200"/><img src="images/scene1_output.gif" width="200"/>
+
+<img src="images/scene1_input.gif" width="500"/><img src="images/scene1_output.gif" width="500"/>
 
 ### Requirements
 ------
