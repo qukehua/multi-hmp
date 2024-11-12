@@ -31,7 +31,7 @@ that our method achieves state-of-the-art performance.
 
 ### Visualization
 ------
-https://github.com/user-attachments/assets/a2929cae-05a1-47b9-921a-fec43712ebd1
+![image](images/scene1_input.gif)
 ### Requirements
 ------
 - PyTorch = 1.8.0
