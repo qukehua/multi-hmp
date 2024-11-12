@@ -31,7 +31,11 @@ that our method achieves state-of-the-art performance.
 
 ### Visualization
 ------
+Scene1 Walking together (2 persons)
+Observed scene:
 ![image](images/scene1_input.gif)
+Predicted scene:
+![image](images/scene1_output.gif)
 ### Requirements
 ------
 - PyTorch = 1.8.0
