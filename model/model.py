@@ -55,7 +55,42 @@ def gen_velocity(m):
     input = torch.stack((input)).permute(1, 0, 2)  # [16 35 66]
 
     return input
+import torch
+import torch.nn as nn
 
+class Decoder(nn.Module):
+    def __init__(self, input_dim=256, hidden_dim=1024, output_joints=13, output_dim=3):
+        """
+        参数:
+        input_dim: 输入特征维度
+        hidden_dim: 隐藏层维度
+        output_joints: 预测的关键点数量(例如COCO数据集17个关键点)
+        output_dim: 每个关键点的维度(3D坐标xyz为3)
+        """
+        super(Decoder, self).__init__()
+        
+        self.mlp = nn.Sequential(
+            
+            nn.Linear(input_dim, hidden_dim),
+            nn.BatchNorm1d(hidden_dim),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+            
+            
+            nn.Linear(hidden_dim, hidden_dim // 2),
+            nn.BatchNorm1d(hidden_dim // 2),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+            
+           
+            nn.Linear(hidden_dim // 2, output_joints * output_dim)
+        )
+        
+    def forward(self, x):
+        batch_size = x.shape[0]
+        x = self.mlp(x)
+        predict = x.view(batch_size, -1, 3)
+        return predict
 
 def delta_2_gt(prediction, last_timestep):
     prediction = prediction.clone()
@@ -314,6 +349,7 @@ class JRTransformer(nn.Module):
 		self.GCNdecoer1 = nn.Linear(in_features=78,out_features=26)
 		self.GCNdecoer2 = nn.Linear(in_features=78,out_features=26)
 		self.Linear3 = nn.Linear(in_features=32,out_features=18)
+		self.decoder = Decoder(input_dim=256, hidden_dim=1024, output_joints=13, output_dim=3)
 
 		self.attn_encoder = nn.ModuleList([
 			Block(feat_size, num_heads, qkv_bias=True, qk_scale=None, norm_layer=norm_layer)
