@@ -405,7 +405,7 @@ class JRTransformer(nn.Module):
 		x_external,x_internal = IAM(x_external,x_internal)
 
 
-		y = decoder(torch.cat(x_external,x_internal))
+		pred = decoder(torch.cat(x_external,x_internal))
 
 
 		#quit()
