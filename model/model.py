@@ -402,8 +402,10 @@ class JRTransformer(nn.Module):
 
 		x_external = torch.cat((x_person1, x_person2),dim=1)
 
+		x_external,x_internal = IAM(x_external,x_internal)
 
 
+		y = decoder(torch.cat(x_external,x_internal))
 
 
 		#quit()
