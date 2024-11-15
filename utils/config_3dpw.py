@@ -43,7 +43,7 @@ weight_loss_aux = 1.0
 
 ## model setting
 depth = 4
-num_heads = 4
+num_heads = 6
 d_k = 128
 in_joint_size = 16 * 6
 out_joint_size = 30 * 3
