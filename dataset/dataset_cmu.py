@@ -4,7 +4,9 @@ import os
 
 from amc_parser import *
 
-#two subjects data
+
+#preprocess the one_person subjects and two_person subjects
+#two_person subjects data
 
 data=[]
 test_data=[]
@@ -153,7 +155,7 @@ np.save('two_test_4seconds_2.npy',np.array(test_data))
 
 ########################################################################
 
-#one subject data
+#one_person subjects data
 
 data=[]
 test_data=[]
