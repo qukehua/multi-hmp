@@ -221,7 +221,7 @@ np.save('one_test_4seconds_30.npy',np.array(test_data))
 
 
 
-
+# mix one_person scenes and two_person scenes
 
 two_train=np.load('two_train_4seconds_2.npy',allow_pickle=True)
 one_train=np.load('one_train_4seconds_30.npy',allow_pickle=True)
