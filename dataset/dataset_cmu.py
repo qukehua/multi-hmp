@@ -155,7 +155,7 @@ np.save('two_test_4seconds_2.npy',np.array(test_data))
 
 ########################################################################
 
-#one_person subjects data
+#one_person subjects data (subjects (18,19,20,21,22,23,33,34) are also used for one_person data)
 
 data=[]
 test_data=[]
