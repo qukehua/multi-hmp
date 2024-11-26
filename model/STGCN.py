@@ -10,46 +10,56 @@ from torch.nn.parameter import Parameter
 import math
 
 
-class GraphConvolution(nn.Module):
+class ConvTemporalGraphical(nn.Module):
+    r"""The basic module for applying a graph convolution.
+    Args:
+        in_channels (int): Number of channels in the input sequence data
+        out_channels (int): Number of channels produced by the convolution
+        kernel_size (int): Size of the graph convolving kernel
+        t_kernel_size (int): Size of the temporal convolving kernel
+        t_stride (int, optional): Stride of the temporal convolution. Default: 1
+        t_padding (int, optional): Temporal zero-padding added to both sides of
+            the input. Default: 0
+        t_dilation (int, optional): Spacing between temporal kernel elements.
+            Default: 1
+        bias (bool, optional): If ``True``, adds a learnable bias to the output.
+            Default: ``True``
+    Shape:
+        - Input: Input graph sequence in :math:`(N, in_channels, T_{in}, V)` format
+        - Output: Outpu graph sequence in :math:`(N, out_channels, T_{out}, V)` format
+        where
+            :math:`N` is a batch size,
+            :math:`K` is the spatial kernel size, as :math:`K == kernel_size[1]`,
+            :math:`T_{in}/T_{out}` is a length of input/output sequence,
+            :math:`V` is the number of graph nodes. 
     """
-    adapted from : https://github.com/tkipf/gcn/blob/92600c39797c2bfb61a508e52b88fb554df30177/gcn/layers.py#L132
-    """
+    def __init__(self,
+                 time_dim,
+                 joints_dim
+    ):
+        super(ConvTemporalGraphical,self).__init__()
+        
+        self.A=nn.Parameter(torch.FloatTensor(time_dim, joints_dim,joints_dim)) #learnable, graph-agnostic 3-d adjacency matrix(or edge importance matrix)
+        stdv = 1. / math.sqrt(self.A.size(1))
+        self.A.data.uniform_(-stdv,stdv)
 
-    def __init__(self, in_features, out_features, bias=True, node_n=78):
-        super(GraphConvolution, self).__init__()
-        self.in_features = in_features
-        self.out_features = out_features
-        self.weight = Parameter(torch.FloatTensor(in_features, out_features))
-        # self.att = Parameter(torch.FloatTensor(node_n, node_n))
-        self.att = Parameter(torch.FloatTensor(0.01 + 0.99 * np.eye(node_n)[np.newaxis, ...]))
-        if bias:
-            self.bias = Parameter(torch.FloatTensor(out_features))
-        else:
-            self.register_parameter('bias', None)
-        self.reset_parameters()
+        self.T=nn.Parameter(torch.FloatTensor(joints_dim , time_dim, time_dim)) 
+        stdv = 1. / math.sqrt(self.T.size(1))
+        self.T.data.uniform_(-stdv,stdv)
+        '''
+        self.prelu = nn.PReLU()
+        
+        self.Z=nn.Parameter(torch.FloatTensor(joints_dim, joints_dim, time_dim, time_dim)) 
+        stdv = 1. / math.sqrt(self.Z.size(2))
+        self.Z.data.uniform_(-stdv,stdv)
+        '''
+    def forward(self, x):
+        x = torch.einsum('nctv,vtq->ncqv', (x, self.T))
+        ## x=self.prelu(x)
+        x = torch.einsum('nctv,tvw->nctw', (x, self.A))
+        ## x = torch.einsum('nctv,wvtq->ncqw', (x, self.Z))
+        return x.contiguous() 
 
-    def reset_parameters(self):
-        # stdv = 1. / math.sqrt(self.weight.size(1))
-        # self.weight.data.uniform_(-stdv, stdv)
-        # self.att.data.uniform_(-stdv, stdv)
-        torch.nn.init.xavier_normal_(self.weight)
-        if self.bias is not None:
-            # self.bias.data.uniform_(-stdv, stdv)
-            self.bias.data.zero_()
-
-    def forward(self, input):
-        # print(input.shape)
-        support = torch.matmul(input, self.weight)
-        output = torch.matmul(self.att, support)
-        if self.bias is not None:
-            return output + self.bias
-        else:
-            return output
-
-    def __repr__(self):
-        return self.__class__.__name__ + ' (' \
-               + str(self.in_features) + ' -> ' \
-               + str(self.out_features) + ')'
 
 class GC_Block(nn.Module):
     def __init__(self, in_features, p_dropout, bias=True, node_n=78):
