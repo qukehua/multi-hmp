@@ -31,14 +31,14 @@ that our method achieves state-of-the-art performance.
 
 ### Visualization
 ------
-__Scene1 (2 persons):__
+__Scene (2 persons):__
 
-<img src="images/scene(walking together).gif" width="300px" />
+<img src="images/scene(walking together).gif" width="300px" height="200px" /><img src="images/scene(pull up).gif" width="300px" height="200px"/>
 
 
-__Scene2 (3 persons):__
+__Scene (3 persons):__
 
-<img src="images/scene(3 persons).gif" width="300px" />
+<img src="images/scene(3 persons).gif" width="300px" height="200px"/>
 
 ### Requirements
 ------
