@@ -33,6 +33,7 @@ that our method achieves state-of-the-art performance.
 ------
 __Scene1 (2 persons):__
 
+<img src="images/scene(walking together).gif" width="300px" />
 
 
 __Scene2 (3 persons):__
