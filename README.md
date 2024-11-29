@@ -37,7 +37,7 @@ __Scene1 (2 persons):__
 
 __Scene2 (3 persons):__
 
-<img src="images/scene3(person3).gif"/>
+<img src="images/scene3(3 persons).gif"/>
 
 ### Requirements
 ------
