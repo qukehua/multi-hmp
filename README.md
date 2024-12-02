@@ -40,6 +40,10 @@ __Scene (3 persons):__
 
 <img src="images/scene(3 persons).gif" width="300px" height="200px"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="images/scene(3 persons)_2.gif" width="300px" height="200px"/>
 
+__Scene (11 persons):__
+
+<img src="images/scene(3 persons).gif" width="300px" height="200px"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
 ### Requirements
 ------
 - PyTorch = 1.8.0
