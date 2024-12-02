@@ -38,7 +38,7 @@ __Scene (2 persons):__
 
 __Scene (3 persons):__
 
-<img src="images/scene(3 persons).gif" width="300px" height="200px"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="images/scene(3 persons).gif" width="300px" height="200px"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="images/scene(3 persons)_2.gif" width="300px" height="200px"/>
 
 ### Requirements
 ------
