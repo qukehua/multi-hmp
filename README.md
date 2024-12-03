@@ -71,7 +71,7 @@ Download all the data and put them in the [dataset path].
 ------
 To train our model, please try
 ```
-python main.py
+python train.py
 ```
 
 
