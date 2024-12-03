@@ -42,7 +42,11 @@ __Scene (3 persons):__
 
 __Scene (11 persons):__
 
-<img src="images/scene(11 persons).gif" width="600px" height="400px"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="images/scene(15 persons)_2.gif" width="600px" height="400px"/>
+<img src="images/scene(11 persons).gif" width="600px" height="400px"/> 
+
+__Scene (15 persons):__
+
+<img src="images/scene(15 persons)_2.gif" width="600px" height="400px"/>
 
 ### Requirements
 ------
